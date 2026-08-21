@@ -1,0 +1,15 @@
+{
+	"name": "nooruberfactory",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "centralus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "4d0873e1-5e4a-49f6-b938-63214480f952",
+		"tenantId": "4725c623-4568-4c79-b56d-71adc46aaba4"
+	}
+}
