@@ -1,0 +1,23 @@
+resources:
+  jobs:
+    uber_streaming_job:
+      name: uber_streaming_job
+      tasks:
+        - task_key: Bronze_adls
+          notebook_task:
+            notebook_path: ../../src/notebooks/Bronze_adls.ipynb
+            source: WORKSPACE
+        - task_key: silver_obt_template
+          depends_on:
+            - task_key: Bronze_adls
+          notebook_task:
+            notebook_path: ../../src/notebooks/Silver_obt.ipynb
+            source: WORKSPACE
+        - task_key: end_to_end_pipeline
+          depends_on:
+            - task_key: silver_obt_template
+          pipeline_task:
+            pipeline_id: 1f1abbec-94e6-450b-bf7f-f19dfb395d9d
+      queue:
+        enabled: true
+      performance_target: PERFORMANCE_OPTIMIZED
