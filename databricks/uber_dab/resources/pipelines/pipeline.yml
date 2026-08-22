@@ -1,0 +1,17 @@
+resources:
+  pipelines:
+    pipeline_bronzepipeline:
+      name: BronzePipeline
+      libraries:
+        - glob:
+            include: ../../src/pipelines/BronzePipeline
+              (2)/transformations/**
+      schema: bronze
+      continuous: false
+      development: false
+      photon: true
+      channel: CURRENT
+      catalog: ${var.catalog_name}
+      serverless: true
+      root_path: ../../src/pipelines/BronzePipeline
+        (2)
